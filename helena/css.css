@@ -1,0 +1,2392 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #06150e;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   VARIÁVEIS
+===================================================== */
+
+:root {
+
+    --green-dark: #06150e;
+    --green: #123c28;
+    --green-light: #2d7047;
+
+    --gold: #d6b45d;
+    --gold-light: #f0dc9a;
+
+    --cream: #f8f1d9;
+
+    --shadow:
+        0 30px 80px rgba(0, 0, 0, .45);
+
+}
+
+
+/* =====================================================
+   PAGE LOADER
+===================================================== */
+
+.page-loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    background:
+        radial-gradient(
+            circle,
+            #173e29,
+            #020b06
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+.page-loader.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+}
+
+.loader-crown {
+
+    font-size: 70px;
+
+    color: var(--gold);
+
+    animation:
+        crownPulse 1.5s infinite;
+
+}
+
+.loader-text {
+
+    margin-top: 15px;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold-light);
+
+    text-transform: uppercase;
+
+}
+
+@keyframes crownPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        text-shadow:
+            0 0 10px rgba(214,180,93,.2);
+
+    }
+
+    50% {
+
+        transform: scale(1.15);
+
+        text-shadow:
+            0 0 35px rgba(214,180,93,.8);
+
+    }
+
+}
+
+
+/* =====================================================
+   PARTICULAS
+===================================================== */
+
+#particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+}
+
+.particle {
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: #ffeaa7;
+
+    box-shadow:
+        0 0 8px #ffeaa7,
+        0 0 18px #d6b45d;
+
+    animation:
+        particleFloat linear infinite;
+
+    opacity: .8;
+
+}
+
+@keyframes particleFloat {
+
+    from {
+
+        transform:
+            translateY(110vh)
+            scale(.5);
+
+        opacity: 0;
+
+    }
+
+    10% {
+        opacity: .8;
+    }
+
+    90% {
+        opacity: .8;
+    }
+
+    to {
+
+        transform:
+            translateY(-10vh)
+            translateX(60px)
+            scale(1.4);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 100svh;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(2,12,7,.94),
+            rgba(2,12,7,.50),
+            rgba(2,12,7,.18)
+        ),
+
+        url("assets/fundo-princesa.jpg")
+        center / cover no-repeat;
+
+}
+
+
+/* camada escura */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(1,9,5,.45),
+            transparent 40%,
+            rgba(1,9,5,.9)
+        );
+
+}
+
+
+/* =====================================================
+   MIST
+===================================================== */
+
+.mist {
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(214,235,218,.08);
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+}
+
+.mist-one {
+
+    bottom: 10%;
+
+    left: -10%;
+
+    animation:
+        mistMove 14s ease-in-out infinite alternate;
+
+}
+
+.mist-two {
+
+    bottom: 25%;
+
+    right: -20%;
+
+    animation:
+        mistMove 18s ease-in-out infinite alternate-reverse;
+
+}
+
+@keyframes mistMove {
+
+    from {
+        transform: translateX(-40px);
+    }
+
+    to {
+        transform: translateX(80px);
+    }
+
+}
+
+
+/* =====================================================
+   LANTERNS
+===================================================== */
+
+.hero-lantern {
+
+    position: absolute;
+
+    width: 35px;
+
+    height: 60px;
+
+    border: 2px solid rgba(214,180,93,.65);
+
+    border-radius: 8px;
+
+    background:
+        rgba(10,32,20,.8);
+
+    box-shadow:
+        0 0 30px rgba(255,202,91,.4);
+
+}
+
+.hero-lantern span {
+
+    position: absolute;
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #ffd76b;
+
+    top: 22px;
+
+    left: 8px;
+
+    box-shadow:
+        0 0 15px #ffd76b,
+        0 0 35px #ffd76b;
+
+}
+
+.lantern-one {
+
+    left: 4%;
+
+    top: 20%;
+
+    animation:
+        lanternFloat 4s infinite ease-in-out;
+
+}
+
+.lantern-two {
+
+    right: 4%;
+
+    bottom: 25%;
+
+    animation:
+        lanternFloat 5s infinite ease-in-out reverse;
+
+}
+
+@keyframes lanternFloat {
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    padding:
+        70px 20px
+        90px;
+
+}
+
+.hero-top {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+.crown-symbol {
+
+    color: var(--gold);
+
+    font-size: 38px;
+
+    text-shadow:
+        0 0 20px rgba(214,180,93,.6);
+
+}
+
+.eyebrow {
+
+    font-family: "Cinzel", serif;
+
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =====================================================
+   HERO GRID
+===================================================== */
+
+.hero-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        .9fr
+        1.1fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+}
+
+
+/* =====================================================
+   HERO COPY
+===================================================== */
+
+.hero-copy {
+
+    text-align: center;
+
+    animation:
+        heroTextIn 1.4s ease both;
+
+}
+
+.script-title {
+
+    font-family: "Great Vibes", cursive;
+
+    color: var(--gold-light);
+
+    font-size: 42px;
+
+    line-height: .8;
+
+}
+
+.hero-copy h1 {
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    font-size:
+        clamp(55px, 8vw, 105px);
+
+    line-height: .9;
+
+    margin: 12px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff4c4,
+            #d6b45d,
+            #9b7731
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.5);
+
+}
+
+.hero-copy h2 {
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(28px, 4vw, 55px);
+
+    color: #fff5d0;
+
+    letter-spacing: 4px;
+
+}
+
+.ornament {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin: 22px 0;
+
+    color: var(--gold);
+
+}
+
+.ornament span {
+
+    width: 70px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+.ornament span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+
+}
+
+.hero-message {
+
+    max-width: 430px;
+
+    margin:
+        0 auto 30px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,.82);
+
+    font-size: 15px;
+
+}
+
+
+/* =====================================================
+   MAGIC BUTTON
+===================================================== */
+
+.magic-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-decoration: none;
+
+    color: #132518;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1d990,
+            #c49a42
+        );
+
+    padding:
+        15px 25px;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 10px 40px rgba(214,180,93,.25);
+
+    transition: .3s;
+
+}
+
+.magic-button:hover {
+
+    color: #132518;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 50px rgba(214,180,93,.5);
+
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.hero-photo-area {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.photo-glow {
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(214,180,93,.25),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+}
+
+.photo-card {
+
+    width:
+        min(420px, 80vw);
+
+    position: relative;
+
+    z-index: 4;
+
+    border-radius:
+        230px
+        230px
+        40px
+        40px;
+
+    padding: 8px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4dfa0,
+            #a97b2f,
+            #f4dfa0
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.65),
+        0 0 50px rgba(214,180,93,.18);
+
+    transform:
+        rotate(1deg);
+
+    animation:
+        photoFloat 6s ease-in-out infinite;
+
+}
+
+.photo-card img {
+
+    width: 100%;
+
+    display: block;
+
+    aspect-ratio:
+        .78;
+
+    object-fit: cover;
+
+    object-position:
+        center top;
+
+    border-radius:
+        225px
+        225px
+        34px
+        34px;
+
+}
+
+.photo-shine {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius:
+        225px
+        225px
+        34px
+        34px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(255,255,255,.18),
+            transparent 60%
+        );
+
+    animation:
+        shineMove 5s infinite;
+
+}
+
+@keyframes shineMove {
+
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50%,
+    100% {
+        transform: translateX(100%);
+    }
+
+}
+
+@keyframes photoFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(1deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(-1deg);
+    }
+
+}
+
+
+/* =====================================================
+   PHOTO RINGS
+===================================================== */
+
+.photo-ring {
+
+    position: absolute;
+
+    border: 1px solid
+        rgba(214,180,93,.45);
+
+    border-radius: 50%;
+
+}
+
+.ring-one {
+
+    width: 470px;
+
+    height: 470px;
+
+    animation:
+        rotateRing 20s linear infinite;
+
+}
+
+.ring-two {
+
+    width: 530px;
+
+    height: 530px;
+
+    border-style: dashed;
+
+    animation:
+        rotateRing 30s linear infinite reverse;
+
+}
+
+@keyframes rotateRing {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =====================================================
+   SAPO
+===================================================== */
+
+.frog-decoration {
+
+    position: absolute;
+
+    z-index: 8;
+
+    right: 5%;
+
+    bottom: 12%;
+
+    font-size: 100px;
+
+    filter:
+        drop-shadow(
+            0 15px 20px rgba(0,0,0,.5)
+        );
+
+    animation:
+        frogFloat 4s infinite ease-in-out;
+
+}
+
+.frog-crown {
+
+    position: absolute;
+
+    top: -20px;
+
+    left: 40px;
+
+    font-size: 35px;
+
+    color: var(--gold);
+
+}
+
+@keyframes frogFloat {
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+
+}
+
+
+/* =====================================================
+   FLORES
+===================================================== */
+
+.lotus {
+
+    position: absolute;
+
+    z-index: 6;
+
+    color: #f5d9b8;
+
+    font-size: 50px;
+
+    text-shadow:
+        0 0 25px rgba(255,210,180,.4);
+
+    animation:
+        lotusFloat 5s infinite ease-in-out;
+
+}
+
+.lotus-one {
+
+    left: 5%;
+
+    bottom: 20%;
+
+}
+
+.lotus-two {
+
+    right: 3%;
+
+    top: 15%;
+
+    animation-delay: 2s;
+
+}
+
+@keyframes lotusFloat {
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(5deg);
+    }
+
+}
+
+
+/* =====================================================
+   SCROLL
+===================================================== */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+
+    text-align: center;
+
+}
+
+.scroll-indicator span {
+
+    display: block;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    margin-bottom: 8px;
+
+}
+
+.scroll-circle {
+
+    width: 42px;
+
+    height: 42px;
+
+    border:
+        1px solid
+        rgba(214,180,93,.7);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+    animation:
+        scrollBounce 2s infinite;
+
+}
+
+@keyframes scrollBounce {
+
+    50% {
+        transform:
+            translateY(8px);
+    }
+
+}
+
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.details-section {
+
+    position: relative;
+
+    padding:
+        120px 0;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(35,96,57,.45),
+            transparent 50%
+        ),
+
+        #06150e;
+
+}
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin:
+        0 auto 60px;
+
+}
+
+.section-crown {
+
+    color: var(--gold);
+
+    font-size: 30px;
+
+    margin-bottom: 12px;
+
+}
+
+.section-heading > span {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+
+}
+
+.section-heading h2 {
+
+    font-family: "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 5vw, 55px);
+
+    color: #f7edc8;
+
+    margin: 12px 0;
+
+}
+
+.section-heading p {
+
+    color:
+        rgba(255,255,255,.65);
+
+    line-height: 1.8;
+
+}
+
+.gold-line {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: var(--gold);
+
+}
+
+.gold-line::before,
+.gold-line::after {
+
+    content: "";
+
+    width: 90px;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold)
+        );
+
+}
+
+.gold-line::after {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            transparent
+        );
+
+}
+
+
+/* =====================================================
+   DETAILS CARD
+===================================================== */
+
+.details-card {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    border:
+        1px solid
+        rgba(214,180,93,.45);
+
+    background:
+        rgba(3,22,13,.85);
+
+    box-shadow:
+        var(--shadow);
+
+    position: relative;
+
+}
+
+.details-card::before,
+.details-card::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    color: var(--gold);
+
+    font-size: 22px;
+
+}
+
+.details-card::before {
+
+    left: 15px;
+
+    top: 10px;
+
+}
+
+.details-card::after {
+
+    right: 15px;
+
+    bottom: 10px;
+
+}
+
+.detail-item {
+
+    min-height: 270px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-right:
+        1px solid
+        rgba(214,180,93,.2);
+
+}
+
+.detail-item:last-child {
+
+    border-right: 0;
+
+}
+
+.detail-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    border:
+        1px solid
+        rgba(214,180,93,.55);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+    font-size: 23px;
+
+    margin-bottom: 15px;
+
+}
+
+.detail-label {
+
+    font-family: "Cinzel", serif;
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+}
+
+.detail-item strong {
+
+    font-family: "Cinzel", serif;
+
+    color: #fff2c4;
+
+    font-size: 42px;
+
+    margin: 5px 0;
+
+}
+
+.detail-item strong.time {
+
+    font-size: 38px;
+
+}
+
+.detail-item strong.place-name {
+
+    font-size: 22px;
+
+}
+
+.detail-item small {
+
+    color:
+        rgba(255,255,255,.7);
+
+    font-size: 11px;
+
+}
+
+.detail-item em {
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 10px;
+
+    margin-top: 5px;
+
+    font-style: normal;
+
+}
+
+.map-button {
+
+    margin-top: 15px;
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid
+        rgba(214,180,93,.6);
+
+    border-radius: 30px;
+
+    color: #fff1c3;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    transition: .3s;
+
+}
+
+.map-button:hover {
+
+    background: var(--gold);
+
+    color: #102316;
+
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section {
+
+    padding:
+        100px 0;
+
+    background:
+
+        linear-gradient(
+            rgba(3,17,10,.9),
+            rgba(3,17,10,.95)
+        ),
+
+        url("assets/fundo-princesa.jpg")
+        center / cover fixed;
+
+}
+
+.countdown-content {
+
+    text-align: center;
+
+}
+
+.countdown-content > span {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: var(--gold);
+
+}
+
+.countdown-content h2 {
+
+    font-family: "Cinzel", serif;
+
+    color: #fff3c7;
+
+    font-size:
+        clamp(28px, 5vw, 50px);
+
+    margin:
+        10px 0 35px;
+
+}
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    max-width: 700px;
+
+    margin: auto;
+
+}
+
+.count-box {
+
+    padding: 25px 10px;
+
+    background:
+        rgba(0,0,0,.45);
+
+    border:
+        1px solid
+        rgba(214,180,93,.3);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+.count-box strong {
+
+    display: block;
+
+    font-family: "Cinzel", serif;
+
+    color: var(--gold-light);
+
+    font-size: 42px;
+
+}
+
+.count-box small {
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,.55);
+
+}
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp-section {
+
+    padding:
+        120px 0;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(45,112,71,.25),
+            transparent 30%
+        ),
+
+        #071a10;
+
+}
+
+.rsvp-layout {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        .8fr;
+
+    gap: 25px;
+
+}
+
+
+/* =====================================================
+   RSVP CARD
+===================================================== */
+
+.rsvp-card {
+
+    position: relative;
+
+    padding:
+        55px;
+
+    background:
+        rgba(4,25,15,.9);
+
+    border:
+        1px solid
+        rgba(214,180,93,.45);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+.card-decoration {
+
+    position: absolute;
+
+    color: var(--gold);
+
+}
+
+.card-decoration.top {
+
+    top: 18px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form-group {
+
+    margin-bottom: 25px;
+
+}
+
+.form-group label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #f2dfaa;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 9px;
+
+}
+
+.form-group label i {
+
+    color: var(--gold);
+
+}
+
+.form-group label span {
+
+    color:
+        rgba(255,255,255,.35);
+
+    text-transform: none;
+
+    font-size: 9px;
+
+}
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(214,180,93,.3);
+
+    border-radius: 10px;
+
+    padding:
+        15px 16px;
+
+    color: white;
+
+    outline: none;
+
+    font-family:
+        "Montserrat", sans-serif;
+
+    transition: .3s;
+
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+    color:
+        rgba(255,255,255,.35);
+
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color:
+        var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(214,180,93,.08);
+
+}
+
+
+/* =====================================================
+   GUESTS
+===================================================== */
+
+.guest-row {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+
+}
+
+.remove-guest {
+
+    width: 48px;
+
+    flex-shrink: 0;
+
+    border: 0;
+
+    border-radius: 10px;
+
+    background:
+        rgba(160,60,60,.15);
+
+    color: #e79c9c;
+
+    transition: .2s;
+
+}
+
+.remove-guest:hover {
+
+    background:
+        rgba(180,60,60,.35);
+
+}
+
+.add-guest {
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    padding:
+        8px 0;
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   CONFIRM BUTTON
+===================================================== */
+
+.confirm-button {
+
+    width: 100%;
+
+    border: 0;
+
+    padding: 17px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d8b761,
+            #b28a36
+        );
+
+    color: #102315;
+
+    font-family: "Cinzel", serif;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    transition: .3s;
+
+    box-shadow:
+        0 10px 35px
+        rgba(214,180,93,.18);
+
+}
+
+.confirm-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(214,180,93,.4);
+
+}
+
+.button-icon {
+
+    font-size: 21px;
+
+}
+
+.secure-message {
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,.4);
+
+    font-size: 9px;
+
+    margin-top: 15px;
+
+}
+
+
+/* =====================================================
+   GIFT
+===================================================== */
+
+.gift-card {
+
+    padding:
+        45px 30px;
+
+    text-align: center;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(19,60,40,.9),
+            rgba(4,25,15,.95)
+        );
+
+    border:
+        1px solid
+        rgba(214,180,93,.4);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+.gift-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin:
+        0 auto 15px;
+
+    border:
+        1px solid
+        rgba(214,180,93,.5);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+    font-size: 28px;
+
+}
+
+.gift-card > span {
+
+    font-family: "Cinzel", serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: var(--gold);
+
+}
+
+.gift-card h3 {
+
+    font-family:
+        "Great Vibes", cursive;
+
+    font-size: 43px;
+
+    color:
+        #f3df9c;
+
+    margin:
+        5px 0 15px;
+
+}
+
+.gift-card > p {
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,.65);
+
+}
+
+.gift-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: left;
+
+    margin-top: 25px;
+
+}
+
+.gift-circle {
+
+    width: 52px;
+
+    height: 52px;
+
+    border:
+        1px solid
+        rgba(214,180,93,.5);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--gold);
+
+}
+
+.gift-option strong {
+
+    display: block;
+
+    color: #fff0bd;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 12px;
+
+}
+
+.gift-option small {
+
+    color:
+        rgba(255,255,255,.5);
+
+    font-size: 10px;
+
+}
+
+.gift-bottom {
+
+    border-top:
+        1px solid
+        rgba(214,180,93,.2);
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    color: var(--gold-light);
+
+    font-family:
+        "Great Vibes", cursive;
+
+    font-size: 25px;
+
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.final-section {
+
+    min-height: 65vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            rgba(2,12,7,.55),
+            rgba(2,12,7,.95)
+        ),
+
+        url("assets/fundo-princesa.jpg")
+        center / cover;
+
+}
+
+.final-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+.final-crown {
+
+    color: var(--gold);
+
+    font-size: 45px;
+
+}
+
+.final-script {
+
+    font-family:
+        "Great Vibes", cursive;
+
+    color:
+        var(--gold-light);
+
+    font-size: 48px;
+
+}
+
+.final-content h2 {
+
+    font-family:
+        "Cinzel", serif;
+
+    font-size:
+        clamp(30px, 6vw, 60px);
+
+    color: white;
+
+}
+
+.final-ornament {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: var(--gold);
+
+    margin: 20px;
+
+}
+
+.final-ornament span {
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        var(--gold);
+
+}
+
+.final-content p {
+
+    color:
+        rgba(255,255,255,.65);
+
+}
+
+.final-content strong {
+
+    display: block;
+
+    font-family: "Cinzel", serif;
+
+    letter-spacing: 8px;
+
+    color: var(--gold-light);
+
+    margin-top: 30px;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.success-toast {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 99999;
+
+    background:
+        #123c28;
+
+    border:
+        1px solid
+        rgba(214,180,93,.5);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.4);
+
+    padding:
+        15px 20px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transform:
+        translateY(150px);
+
+    opacity: 0;
+
+    transition: .4s;
+
+}
+
+.success-toast.show {
+
+    transform:
+        translateY(0);
+
+    opacity: 1;
+
+}
+
+.success-toast > i {
+
+    font-size: 25px;
+
+    color: #65d98d;
+
+}
+
+.success-toast strong,
+.success-toast span {
+
+    display: block;
+
+}
+
+.success-toast strong {
+
+    color: white;
+
+    font-size: 13px;
+
+}
+
+.success-toast span {
+
+    color:
+        rgba(255,255,255,.55);
+
+    font-size: 10px;
+
+}
+
+
+/* =====================================================
+   REVEAL
+===================================================== */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+
+}
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+
+        background-position:
+            center top;
+
+    }
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero-copy {
+
+        order: 2;
+
+    }
+
+    .hero-photo-area {
+
+        order: 1;
+
+        min-height: 500px;
+
+    }
+
+    .details-card {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .detail-item:nth-child(2) {
+
+        border-right: 0;
+
+    }
+
+    .detail-item:nth-child(-n+2) {
+
+        border-bottom:
+            1px solid
+            rgba(214,180,93,.2);
+
+    }
+
+    .rsvp-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-content {
+
+        padding:
+            50px 15px
+            80px;
+
+    }
+
+    .hero-photo-area {
+
+        min-height: 440px;
+
+    }
+
+    .photo-card {
+
+        width: 300px;
+
+    }
+
+    .ring-one {
+
+        width: 330px;
+
+        height: 330px;
+
+    }
+
+    .ring-two {
+
+        width: 370px;
+
+        height: 370px;
+
+    }
+
+    .frog-decoration {
+
+        font-size: 65px;
+
+        right: 3%;
+
+        bottom: 4%;
+
+    }
+
+    .frog-crown {
+
+        font-size: 22px;
+
+        top: -15px;
+
+        left: 25px;
+
+    }
+
+    .lotus {
+
+        font-size: 35px;
+
+    }
+
+    .details-section,
+    .rsvp-section {
+
+        padding:
+            80px 15px;
+
+    }
+
+    .details-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .detail-item {
+
+        min-height: 210px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid
+            rgba(214,180,93,.2);
+
+    }
+
+    .detail-item:last-child {
+
+        border-bottom: 0;
+
+    }
+
+    .countdown-section {
+
+        padding:
+            75px 15px;
+
+    }
+
+    .countdown {
+
+        gap: 7px;
+
+    }
+
+    .count-box {
+
+        padding:
+            20px 5px;
+
+    }
+
+    .count-box strong {
+
+        font-size: 27px;
+
+    }
+
+    .count-box small {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+
+    }
+
+    .rsvp-card {
+
+        padding:
+            40px 18px;
+
+    }
+
+    .gift-card {
+
+        padding:
+            40px 20px;
+
+    }
+
+    .final-script {
+
+        font-size: 40px;
+
+    }
+
+    .success-toast {
+
+        left: 15px;
+
+        right: 15px;
+
+        bottom: 15px;
+
+    }
+
+}
